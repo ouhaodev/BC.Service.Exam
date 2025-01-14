@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BC.Service.Exam.Services
+﻿namespace BC.Service.Exam.Services
 {
     public interface ICurrentUserService
     {

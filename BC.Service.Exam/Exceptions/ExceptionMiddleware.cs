@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
+using Newtonsoft.Json;
 
 namespace BC.Service.Exam.Exceptions
 {
@@ -37,7 +37,6 @@ namespace BC.Service.Exam.Exceptions
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = statusCode;
             await context.Response.WriteAsync(JsonConvert.SerializeObject(message));
-
         }
     }
 }

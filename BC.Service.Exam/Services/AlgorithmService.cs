@@ -17,7 +17,7 @@
 
         public static List<int> SortList(List<int> candidates)
         {
-            List<int> rearranged = new List<int>();
+            var result = new List<int>();
             int start = 0;
             int end = candidates.Count - 1;
 
@@ -25,18 +25,18 @@
             {
                 if (start == end)
                 {
-                    rearranged.Add(candidates[start]);
+                    result.Add(candidates[start]);
                 }
                 else
                 {
-                    rearranged.Add(candidates[start]);
-                    rearranged.Add(candidates[end]);
+                    result.Add(candidates[start]);
+                    result.Add(candidates[end]);
                 }
                 start++;
                 end--;
             }
 
-            return rearranged;
+            return result;
         }
     }
 }

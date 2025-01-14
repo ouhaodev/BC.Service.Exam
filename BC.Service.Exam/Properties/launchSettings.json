@@ -10,5 +10,5 @@
             "launchUrl": "swagger/index.html"
         }
     },
-  "$schema": "http://json.schemastore.org/launchsettings.json",
+    "$schema": "http://json.schemastore.org/launchsettings.json",
 }

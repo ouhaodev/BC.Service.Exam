@@ -25,7 +25,6 @@ namespace BC.Service.Exam.Services
             }
 
             return new ServiceResult<Candidate>(StatusCodes.Status200OK, candidate);
-
         }
 
         public async Task<ServiceResult<Candidate>> CreateCandidateAsync(CreateCandidateVM createCandidateVM)
@@ -39,7 +38,6 @@ namespace BC.Service.Exam.Services
             var result = _appContext.Candidates.Add(dto);
             await _appContext.SaveChangesAsync();
             return new ServiceResult<Candidate>(StatusCodes.Status201Created, result.Entity);
-
         }
 
         public async Task<ServiceResult<Candidate>> DeleteCandidateByIdAsync(long id)
@@ -53,8 +51,7 @@ namespace BC.Service.Exam.Services
             _appContext.Candidates.Remove(candidate);
             await _appContext.SaveChangesAsync();
 
-            return new ServiceResult<Candidate>(StatusCodes.Status202Accepted);
-
+            return new ServiceResult<Candidate>(StatusCodes.Status204NoContent);
         }
 
         public ServiceResult<IList<int>> GenerateRandomCandidates(int num)

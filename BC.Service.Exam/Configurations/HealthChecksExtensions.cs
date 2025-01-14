@@ -29,8 +29,8 @@
                      timeout: TimeSpan.FromSeconds(5),
                      tags: ["live"])
 
-             .AddUrlGroup(new Uri("http://localhost:8080/health"), 
-             name: "API Health Check", 
+             .AddUrlGroup(new Uri("http://localhost:8080/health"),
+             name: "API Health Check",
              timeout: TimeSpan.FromSeconds(5),
              tags: ["live"]);
 

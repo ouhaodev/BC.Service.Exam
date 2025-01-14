@@ -7,6 +7,7 @@ namespace BC.Service.Exam.Exceptions
     public class ResponseException : Exception
     {
         public HttpStatusCode StatusCode;
+
         public ResponseException(HttpStatusCode statusCode, string? message) : base(message)
         {
             StatusCode = statusCode;
