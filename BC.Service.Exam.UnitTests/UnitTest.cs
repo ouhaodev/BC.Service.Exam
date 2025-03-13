@@ -13,7 +13,7 @@ namespace BC.Service.Exam.UnitTests
         [TestMethod]
         public void GenerateRandomCandidates_Test(int num, int resultCode)
         {
-            var service = new CandidateService(null, null);
+            var service = new CandidateService(null);
             var result = service.GenerateRandomCandidates(num);
             Assert.AreEqual(result.StatusCode, resultCode);
         }

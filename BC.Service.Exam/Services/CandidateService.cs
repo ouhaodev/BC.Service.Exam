@@ -7,24 +7,29 @@ namespace BC.Service.Exam.Services
     public class CandidateService : ICandidateService
     {
         private readonly ILogger<CandidateService> _logger;
-        private readonly AppDbContext _appContext;
+        // private readonly AppDbContext _appContext;
 
-        public CandidateService(ILogger<CandidateService> logger, AppDbContext appContext)
+        public CandidateService(ILogger<CandidateService> logger)
         {
             _logger = logger;
-            _appContext = appContext;
         }
+
+        // public CandidateService(ILogger<CandidateService> logger, AppDbContext appContext)
+        // {
+        //     _logger = logger;
+        //     _appContext = appContext;
+        // }
 
         public async Task<ServiceResult<Candidate>> GetCandidateByIdAsync(long id)
         {
-            var candidate = await _appContext.Candidates.FindAsync(id);
-            if (candidate == null)
-            {
-                return new UnsuccessfulServiceResult<Candidate>(StatusCodes.Status404NotFound,
-                 $"Candidate with ID {id} not found.");
-            }
+            // var candidate = await _appContext.Candidates.FindAsync(id);
+            // if (candidate == null)
+            // {
+            //     return new UnsuccessfulServiceResult<Candidate>(StatusCodes.Status404NotFound,
+            //      $"Candidate with ID {id} not found.");
+            // }
 
-            return new ServiceResult<Candidate>(StatusCodes.Status200OK, candidate);
+            return new ServiceResult<Candidate>(StatusCodes.Status200OK, null);
         }
 
         public async Task<ServiceResult<Candidate>> CreateCandidateAsync(CreateCandidateVM createCandidateVM)
@@ -35,21 +40,21 @@ namespace BC.Service.Exam.Services
                 Age = createCandidateVM.Age
             };
 
-            var result = _appContext.Candidates.Add(dto);
-            await _appContext.SaveChangesAsync();
-            return new ServiceResult<Candidate>(StatusCodes.Status201Created, result.Entity);
+            // var result = _appContext.Candidates.Add(dto);
+            // await _appContext.SaveChangesAsync();
+            return new ServiceResult<Candidate>(StatusCodes.Status201Created, dto);
         }
 
         public async Task<ServiceResult<Candidate>> DeleteCandidateByIdAsync(long id)
         {
-            var candidate = await _appContext.Candidates.FindAsync(id);
-            if (candidate == null)
-            {
-                return new UnsuccessfulServiceResult<Candidate>(StatusCodes.Status404NotFound, $"Candidate with ID {id} not found.");
-            }
+            // var candidate = await _appContext.Candidates.FindAsync(id);
+            // if (candidate == null)
+            // {
+            //     return new UnsuccessfulServiceResult<Candidate>(StatusCodes.Status404NotFound, $"Candidate with ID {id} not found.");
+            // }
 
-            _appContext.Candidates.Remove(candidate);
-            await _appContext.SaveChangesAsync();
+            // _appContext.Candidates.Remove(candidate);
+            // await _appContext.SaveChangesAsync();
 
             return new ServiceResult<Candidate>(StatusCodes.Status204NoContent);
         }

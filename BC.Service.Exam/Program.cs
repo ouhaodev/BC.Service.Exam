@@ -1,11 +1,11 @@
+using System.IO.Compression;
 using BC.Service.Exam.Configurations;
-using BC.Service.Exam.DataAccess;
 using BC.Service.Exam.Exceptions;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.EntityFrameworkCore;
-using System.IO.Compression;
 
-internal class Program
+namespace BC.Service.Exam;
+
+internal static class Program
 {
     private static void Main(string[] args)
     {
@@ -39,7 +39,7 @@ internal class Program
         builder.AddSwaggerConfiguration();
 
         // Configure Database
-        builder.AddDataBase();
+        // builder.AddDataBase();
 
         builder.ConfigureServices();
 
@@ -55,7 +55,7 @@ internal class Program
 
         if (app.Environment.IsDevelopment())
         {
-            app.MigrateDatabase();
+            // app.MigrateDatabase();
             app.UseDeveloperExceptionPage();
         }
         else

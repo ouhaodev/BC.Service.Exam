@@ -6,7 +6,7 @@
         {
             var numbers = new List<int>();
 
-            for (int i = 1; i <= num; i++)
+            for (var i = 1; i <= num; i++)
             {
                 numbers.Add(i);
             }
@@ -18,8 +18,8 @@
         public static List<int> SortList(List<int> candidates)
         {
             var result = new List<int>();
-            int start = 0;
-            int end = candidates.Count - 1;
+            var start = 0;
+            var end = candidates.Count - 1;
 
             while (start <= end)
             {
